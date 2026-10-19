@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English Listening Practice</title>
+<style>
+  body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;max-width:850px;margin:0 auto;padding:20px;line-height:1.65;color:#202124;background:#fafafa}
+  h1{font-size:1.5rem} .card{background:white;border:1px solid #ddd;border-radius:14px;padding:18px;margin:16px 0}
+  button,select,input{font:inherit} button{border:0;border-radius:9px;padding:10px 14px;margin:5px 5px 5px 0;cursor:pointer;background:#1a73e8;color:white}
+  button.secondary{background:#5f6368} select{max-width:100%;padding:8px;margin:6px 0}
+  label{display:block;margin-top:10px;font-weight:600} .hint{color:#555;font-size:.95rem}
+  #status{font-weight:600;color:#0b8043;margin-top:8px}
+</style>
+</head>
+<body>
+<h1>English Listening Practice</h1>
+<p class="hint">This player uses the English voices installed in your browser/device. For the most natural sound, choose a voice marked “Natural” or a high-quality English (United States) voice if available. Voice availability varies by device.</p>
+<div class="card">
+  <label for="voice">Voice</label>
+  <select id="voice"></select>
+  <label for="rate">Speaking speed: <span id="rateValue">0.90×</span></label>
+  <input id="rate" type="range" min="0.75" max="1.10" step="0.05" value="0.90" style="width:100%">
+  <div>
+    <button onclick="playText('heritage')">Play: Cultural Heritage</button>
+    <button class="secondary" onclick="pauseResume()">Pause / Resume</button>
+    <button class="secondary" onclick="stopSpeech()">Stop</button>
+  </div>
+  <div><button onclick="playText('menthal')">Play: Smartphone & Menthal</button></div>
+  <div id="status" aria-live="polite">Ready</div>
+</div>
+
+<div class="card">
+<h2>1. Cultural Heritage — 3D Scanning</h2>
+<p>The Parthenon on the Acropolis is one of the most popular places to visit in the world. Like the Pyramids of Egypt, the Great Wall of China, and Machu Picchu in Peru, the Parthenon in Athens, Greece, is a part of our cultural history. On the other side of the Atlantic, in Dakota in the United States, millions of tourists visit each year to see the famous sculpture of four American presidents on the face of Mount Rushmore. But there is a problem. Weather or pollution can damage important places such as these. How can we protect them?</p>
+<p>South Lanarkshire, Scotland, 2009: the start of an exciting project. Using a special 3D laser, a team of scientists scanned the buildings in New Lanark, a village from the 18th century. The result was a digital model that showed the details of New Lanark. If something happens to any of the buildings or parts of the village in the future, architects can use the model to build them again.</p>
+<p>Douglas Pritchard works at Heriot-Watt University in Edinburgh. He is an expert in using scanners to make 3D digital models. In 2009, he started working with the team from the Glasgow School of Art. Together, they scanned important places around the world, including Sydney Opera House, Cologne Cathedral, and Mount Rushmore. New Lanark was their first project.</p>
+<p>Scanning buildings helps us to look after and protect them. It also gives engineers and architects who design buildings new information about the most important cultural sites around the world. It is possible that we will lose places such as the Parthenon or Mount Rushmore. But thanks to Douglas Pritchard's project, we now have 3D digital models of them on screens that we can go back to again and again.</p>
+</div>
+
+<div class="card">
+<h2>2. Smartphone Use — Menthal App</h2>
+<p>Narrator: Here at the University of Bonn, in Germany, researchers developed a new smartphone app. It's called Menthal, and it can show you how you use your phone. Researchers at the university were interested in two questions: Can using our phones be bad for our mental health? And what are we using them for? Christian Montag was the head of the research team that developed the app. He explains the test that they did with Menthal.</p>
+<p>Christian Montag: We developed a new app that records how smartphone users behave. We noticed users often don't know this themselves, because we use our smartphones without thinking. This means we don't know how often we use them. In our test, we installed our app on the smartphones of 50 students. The app then told us how often the students used their phones.</p>
+<p>Narrator: The team discovered that the students were looking at their phones about 80 times a day. But why did they want to use them so often? Christian Montag thinks he knows why: we are influenced by this technology.</p>
+<p>Christian Montag: We believe that using a smartphone is like entering a competition. Even if you can't win, there is always this nice surprise when you switch on the smartphone. There is a new message you can read, or a new e-mail arrives. But there are other things too. Maybe I'm looking forward to the next game I could use. And these little positive moments of surprise make people look at their smartphones again and again.</p>
+<p>Narrator: Alexander Markowetz helped develop the Menthal app. He was interested in two results of the test that the team did with the students at the University of Bonn.</p>
+<p>Alexander Markowetz: We saw that people looked at the front screen of their smartphones around 80 times a day. And they went into their phone to use an app about 40 to 50 times a day. Some people used their phones two or three times more than that. Generally, people used their phones about two hours a day — that's a lot. We do everything with our smartphone, but we don't often make phone calls. In our test, people used phones for two hours, but only spent eight minutes making calls.</p>
+</div>
+<script>
+const texts = {
+heritage: `The Parthenon on the Acropolis is one of the most popular places to visit in the world. Like the Pyramids of Egypt, the Great Wall of China, and Machu Picchu in Peru, the Parthenon in Athens, Greece, is a part of our cultural history. On the other side of the Atlantic, in Dakota in the United States, millions of tourists visit each year to see the famous sculpture of four American presidents on the face of Mount Rushmore. But there is a problem. Weather or pollution can damage important places such as these. How can we protect them? South Lanarkshire, Scotland, 2009: the start of an exciting project. Using a special 3D laser, a team of scientists scanned the buildings in New Lanark, a village from the 18th century. The result was a digital model that showed the details of New Lanark. If something happens to any of the buildings or parts of the village in the future, architects can use the model to build them again. Douglas Pritchard works at Heriot-Watt University in Edinburgh. He is an expert in using scanners to make 3D digital models. In 2009, he started working with the team from the Glasgow School of Art. Together, they scanned important places around the world, including Sydney Opera House, Cologne Cathedral, and Mount Rushmore. New Lanark was their first project. Scanning buildings helps us to look after and protect them. It also gives engineers and architects who design buildings new information about the most important cultural sites around the world. It is possible that we will lose places such as the Parthenon or Mount Rushmore. But thanks to Douglas Pritchard's project, we now have 3D digital models of them on screens that we can go back to again and again.`,
+menthal: `Narrator: Here at the University of Bonn, in Germany, researchers developed a new smartphone app. It's called Menthal, and it can show you how you use your phone. Researchers at the university were interested in two questions: Can using our phones be bad for our mental health? And what are we using them for? Christian Montag was the head of the research team that developed the app. He explains the test that they did with Menthal. Christian Montag: We developed a new app that records how smartphone users behave. We noticed users often don't know this themselves, because we use our smartphones without thinking. This means we don't know how often we use them. In our test, we installed our app on the smartphones of 50 students. The app then told us how often the students used their phones. Narrator: The team discovered that the students were looking at their phones about 80 times a day. But why did they want to use them so often? Christian Montag thinks he knows why: we are influenced by this technology. Christian Montag: We believe that using a smartphone is like entering a competition. Even if you can't win, there is always this nice surprise when you switch on the smartphone. There is a new message you can read, or a new e-mail arrives. But there are other things too. Maybe I'm looking forward to the next game I could use. And these little positive moments of surprise make people look at their smartphones again and again. Narrator: Alexander Markowetz helped develop the Menthal app. He was interested in two results of the test that the team did with the students at the University of Bonn. Alexander Markowetz: We saw that people looked at the front screen of their smartphones around 80 times a day. And they went into their phone to use an app about 40 to 50 times a day. Some people used their phones two or three times more than that. Generally, people used their phones about two hours a day — that's a lot. We do everything with our smartphone, but we don't often make phone calls. In our test, people used phones for two hours, but only spent eight minutes making calls.`
+};
+const voiceSelect = document.getElementById('voice');
+const rate = document.getElementById('rate');
+rate.addEventListener('input',()=>document.getElementById('rateValue').textContent=Number(rate.value).toFixed(2)+'×');
+function loadVoices(){
+  const voices=speechSynthesis.getVoices();
+  voiceSelect.innerHTML='';
+  const sorted=voices.slice().sort((a,b)=>{
+    const score=v=>((/en-US/i.test(v.lang)?20:0)+(/natural|neural|online/i.test(v.name)?50:0)+(/microsoft|google/i.test(v.name)?10:0));
+    return score(b)-score(a);
+  });
+  sorted.forEach((v,i)=>{const o=document.createElement('option');o.value=v.name;o.textContent=`${v.name} (${v.lang})${v.default?' — default':''}`;voiceSelect.appendChild(o);});
+}
+loadVoices(); if ('onvoiceschanged' in speechSynthesis) speechSynthesis.onvoiceschanged=loadVoices;
+function playText(key){
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(texts[key]);
+  const v=speechSynthesis.getVoices().find(v=>v.name===voiceSelect.value);
+  if(v) u.voice=v;
+  u.lang=v?v.lang:'en-US'; u.rate=Number(rate.value); u.pitch=1;
+  u.onstart=()=>document.getElementById('status').textContent='Playing…';
+  u.onend=()=>document.getElementById('status').textContent='Finished';
+  u.onerror=()=>document.getElementById('status').textContent='Could not play. Try another voice.';
+  speechSynthesis.speak(u);
+}
+function pauseResume(){if(speechSynthesis.paused)speechSynthesis.resume();else if(speechSynthesis.speaking)speechSynthesis.pause();}
+function stopSpeech(){speechSynthesis.cancel();document.getElementById('status').textContent='Stopped';}
+</script>
+</body>
+</html>
